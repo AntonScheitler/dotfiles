@@ -1,0 +1,14 @@
+--require('tokyonight').setup({
+--    transparent = true,
+--    styles = {
+--        floats = "transparent",
+--        sidebars = "transparent",
+--    }
+--})
+--
+--
+--vim.api.nvim_set_hl(0, "QuickFixLine", {bg = "none"})
+--vim.api.nvim_set_hl(0, "StatusLine", {bg = "none"})
+--vim.api.nvim_set_hl(0, "CursorLine", {bg = "none"})
+--vim.api.nvim_set_hl(0, "Visual", {bg = "red"})
+vim.cmd.colorscheme("tokyonight-moon")

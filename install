@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# creates symlinks in the necessary locations to the these dotfiles
+# this may not work, if you already have files in these locations, so you might need to delete them (or add an -f to the ln command)
+
+ln -sv "$(pwd)/bashrc" ~/.bashrc
+
+ln -sv "$(pwd)/i3" ~/.config/i3
+
+ln -sv "$(pwd)/nvim" ~/.config/nvim
+
+ln -sv "$(pwd)/tmux.conf" ~/.tmux.conf
+
+
+# you may not need those, so they're commented out
+#ln -sv "$(pwd)/bin/ankimd" ~/bin/ankimd
+#ln -sv "$(pwd)/bin/fopen" ~/bin/fopen
+#ln -sv "$(pwd)/bin/lock.sh" ~/bin/lock.sh
+#ln -sv "$(pwd)/bin/monitor.sh" ~/bin/monitor.sh
+#ln -sv "$(pwd)/bin/notes-push" ~/bin/notes-push
