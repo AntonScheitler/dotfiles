@@ -1,0 +1,1 @@
+/home/anton/.config/i3
