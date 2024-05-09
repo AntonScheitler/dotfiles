@@ -9,7 +9,7 @@ echo "\_| \_/\___/ \__\___||___/  \___/| .__/|_|\___/ \__,_|\__,_|" >&2
 echo "                                 | |                         " >&2
 echo "                                 |_|                        " >&2
 
-cd /home/anton/personal/Obsidian/
+cd /home/anton/personal/Notes/
 git add . >&2
 git commit -m "Notes updated" >&2
 git push >&2

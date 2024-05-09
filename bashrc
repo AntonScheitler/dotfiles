@@ -112,9 +112,7 @@ if ! shopt -oq posix; then
 fi
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export VIMRUNTIME="/home/anton/.config/nvim/after/ftplugin"
 export PATH="$PATH:/home/anton/snap/flutter/common/flutter/bin:/home/anton/personal/development/android-studio/bin:/home/anton/bin"
-source /usr/share/doc/fzf/examples/key-bindings.bash
 
 vim() {
     if [[ -d $1 ]]; then

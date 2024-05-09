@@ -11,10 +11,14 @@ ln -sv "$(pwd)/nvim" ~/.config/nvim
 
 ln -sv "$(pwd)/tmux.conf" ~/.tmux.conf
 
+ln -sv "$(pwd)/alacritty" ~/.config/alacritty
+
+ln -sv "$(pwd)/i3blocks" ~/.config/i3blocks
+
 
 # you may not need those, so they're commented out
-#ln -sv "$(pwd)/bin/ankimd" ~/bin/ankimd
-#ln -sv "$(pwd)/bin/fopen" ~/bin/fopen
-#ln -sv "$(pwd)/bin/lock.sh" ~/bin/lock.sh
-#ln -sv "$(pwd)/bin/monitor.sh" ~/bin/monitor.sh
-#ln -sv "$(pwd)/bin/notes-push" ~/bin/notes-push
+ln -sv "$(pwd)/bin/ankimd" ~/bin/ankimd
+ln -sv "$(pwd)/bin/fopen" ~/bin/fopen
+ln -sv "$(pwd)/bin/lock.sh" ~/bin/lock.sh
+ln -sv "$(pwd)/bin/monitor.sh" ~/bin/monitor.sh
+ln -sv "$(pwd)/bin/notes-push" ~/bin/notes-push
