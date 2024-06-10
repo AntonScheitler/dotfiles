@@ -111,8 +111,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# start ssh-agent automatically, if there isn't one already
+#if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+#    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+#fi
+#if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
+#    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+#fi
+eval $(keychain --eval --quiet github)
+
 export XDG_CONFIG_HOME="$HOME/.config"
-export PATH="$PATH:/home/anton/snap/flutter/common/flutter/bin:/home/anton/personal/development/android-studio/bin:/home/anton/bin"
+export PATH="$PATH:/home/anton/bin:/home/anton/.local/share/flutter/bin"
 
 vim() {
     if [[ -d $1 ]]; then
@@ -122,7 +131,8 @@ vim() {
     fi
 }
 
-alias fcd='cd "$(find ~/personal/ ~/Documents/ ~/Downloads/ ~/.config/ -type d | fzf -i)"'
-alias fvim='(cd "$(find ~/personal/ ~/Downloads/ ~/.config -type d | fzf -i)" && vim .)'
+alias fcd='cd "$(find ~/personal/ ~/uni ~/downloads/ ~/.config/ -type d | fzf -i)"'
+alias fvim='(cd "$(find ~/personal/ ~/uni ~/downloads/ ~/.config -type d | fzf -i)" && vim .)'
 alias clp='xclip -sel clip'
-alias fpdf='fopen ~/Documents --names "*.pdf"'
+#alias fpdf='fopen ~/downloads ~/uni --names "*.pdf"'
+alias open='xdg-open'

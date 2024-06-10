@@ -3,8 +3,11 @@ import = [
     "~/.config/alacritty/themes/tokyo-night.toml"
 ]
 
+[env]
+WINIT_X11_SCALE_FACTOR = "1.78"
+
 [font]
-size = 8
+size = 7
 
 [font.bold]
 family = "JetBrainsMono"
