@@ -193,13 +193,13 @@ bar {
 	position top
     status_command i3blocks
     workspace_min_width 22
-    padding 6 14 0 14
+    padding 6 12 0 12
     colors {
         background #000000
-        statusline #efefef
+        statusline #cbd3f8
         separator #acb0d0
-        focused_workspace #9699a8 #daddec #13181b
-        inactive_workspace #000000 #13181b #daddec
+        focused_workspace #9699a8 #a9b1d6 #13181b
+        inactive_workspace #000000 #13181b #a9b1d6
         
     }
 }
@@ -218,16 +218,16 @@ bindsym $mod+Shift+o exec systemctl reboot
 # larger border
 for_window [tiling_from="auto"] border pixel 3
 #class		        	    border		bground		text		indicator	child_border
-client.focused		    	#000000	    #08052b	    #ffffff		#8b8b8b	    #acb0d0
-client.unfocused	    	#000000	    #08052b	    #b0b5bd		#383c4a	    #32344a
-#client.focused_inactive	    #d3c6aa	    #08052b	    #b0b5bd		#000000		#383c4a
+client.focused		    	#000000	    #08052b	    #ffffff		#8b8b8b	    #a9b1d6
+client.unfocused	    	#000000	    #08052b	    #b0b5bd		#383c4a	    #24283b
+client.focused_inactive	    #d3c6aa	    #08052b	    #b0b5bd		#000000		#444b6a
 #client.urgent		    	#d699b6	    #d699b6	    #ffffff		#d699b6	    #d699b6
 
 # padding for windows
 gaps top 2
-gaps bottom 6
-gaps left 8
-gaps right 8
+gaps bottom 4
+gaps left 6
+gaps right 6
 gaps inner 6
 
 # enable screenshots
