@@ -2,6 +2,6 @@ configuration {
   modes: [ run ];
 }
 
-@theme "gruvbox-light"
+@theme "tokyonight-minimal"
 
 /* Insert theme modifications after this */
