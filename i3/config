@@ -187,16 +187,15 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    #strip_workspace_numbers yes
-    #strip_workspace_name no
+    #mode invisible
     tray_output none
 	position top
     status_command i3blocks
-    workspace_min_width 22
+    workspace_min_width 26
     padding 6 12 0 12
     colors {
         background #000000
-        statusline #cbd3f8
+        statusline #c8d3f5
         separator #acb0d0
         focused_workspace #9699a8 #a9b1d6 #13181b
         inactive_workspace #000000 #13181b #a9b1d6
@@ -216,10 +215,10 @@ bindsym $mod+Shift+i exec systemctl poweroff
 bindsym $mod+Shift+o exec systemctl reboot
 
 # larger border
-for_window [tiling_from="auto"] border pixel 3
+for_window [tiling_from="auto"] border pixel 2
 #class		        	    border		bground		text		indicator	child_border
 client.focused		    	#000000	    #08052b	    #ffffff		#8b8b8b	    #a9b1d6
-client.unfocused	    	#000000	    #08052b	    #b0b5bd		#383c4a	    #24283b
+client.unfocused	    	#000000	    #08052b	    #b0b5bd		#383c4a	    #35394c
 client.focused_inactive	    #d3c6aa	    #08052b	    #b0b5bd		#000000		#444b6a
 #client.urgent		    	#d699b6	    #d699b6	    #ffffff		#d699b6	    #d699b6
 

@@ -118,7 +118,7 @@ fi
 #if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
 #    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 #fi
-eval $(keychain --eval --quiet github)
+eval $(keychain --eval --quiet github lrz)
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$PATH:/home/anton/bin:/home/anton/.local/share/flutter/bin"

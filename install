@@ -15,6 +15,7 @@ ln -sv "$(pwd)/alacritty" ~/.config/alacritty
 
 ln -sv "$(pwd)/i3blocks" ~/.config/i3blocks
 
+ln -sv "$(pwd)/rofi" ~/.config/rofi
 
 # you may not need those, so they're commented out
 ln -sv "$(pwd)/bin/ankimd" ~/bin/ankimd

@@ -1,0 +1,7 @@
+configuration {
+  modes: [ run ];
+}
+
+@theme "gruvbox-light"
+
+/* Insert theme modifications after this */
