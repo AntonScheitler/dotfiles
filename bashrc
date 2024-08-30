@@ -122,6 +122,7 @@ eval $(keychain --eval --quiet github lrz)
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$PATH:/home/anton/bin:/home/anton/.local/share/flutter/bin"
+export ANDROID_HOME="$HOME/.local/share/Android/Sdk"
 
 vim() {
     if [[ -d $1 ]]; then
@@ -131,7 +132,7 @@ vim() {
     fi
 }
 
-alias fcd='cd "$(find ~/personal/ ~/uni ~/downloads/ ~/.config/ -type d | fzf -i)"'
+alias fcd='cd "$(find ~/personal/ ~/uni ~/downloads/ ~/.config/ ~/dicuments -type d | fzf -i)"'
 alias fvim='(cd "$(find ~/personal/ ~/uni ~/downloads/ ~/.config -type d | fzf -i)" && vim .)'
 alias clp='xclip -sel clip'
 #alias fpdf='fopen ~/downloads ~/uni --names "*.pdf"'

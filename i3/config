@@ -32,7 +32,7 @@ exec --no-startup-id compton
 exec --no-startup-id nm-applet
 
 # set background image
-exec --no-startup-id feh --bg-scale /home/anton/Pictures/dog.jpg
+exec --no-startup-id feh --bg-scale /home/anton/dicuments/pictures/wall.jpg
 
 exec --no-startup-id setxkbmap -option ctrl:swapcaps
 
@@ -192,7 +192,7 @@ bar {
 	position top
     status_command i3blocks
     workspace_min_width 26
-    padding 6 16 0 16
+    padding 6 0 0 0
     colors {
         background #000000
         statusline #c8d3f5
