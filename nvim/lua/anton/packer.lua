@@ -42,4 +42,5 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/harpoon'
 
     use "lukas-reineke/lsp-format.nvim"
+    --use "luckasRanarison/tailwind-tools.nvim"
 end)
