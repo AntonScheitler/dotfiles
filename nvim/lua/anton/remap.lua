@@ -17,6 +17,9 @@ vim.keymap.set("x", "<leader>p", "\"_d<Left>p")
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
+vim.keymap.set("n", "<leader>c", "\"_c")
+vim.keymap.set("v", "<leader>c", "\"_c")
+
 -- easy rename
 vim.keymap.set("n", "<leader>s", [[:%s/<C-r><C-w>//g<Left><Left>]])
 
