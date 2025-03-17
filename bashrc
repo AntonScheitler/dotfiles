@@ -114,7 +114,7 @@ fi
 eval $(keychain --eval --quiet github lrz)
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export PATH="$PATH:/home/anton/bin:/home/anton/.local/share/flutter/bin"
+export PATH="$PATH:/home/anton/bin:/home/anton/.local/share/flutter/bin:/home/anton/.local/bin"
 export ANDROID_HOME="$HOME/.local/share/Android/Sdk"
 
 vim() {

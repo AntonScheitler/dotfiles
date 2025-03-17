@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INTERNAL_OUTPUT="eDP"
-EXTERNAL_OUTPUT="HDMI-A-0"
+EXTERNAL_OUTPUT="DisplayPort-0"
 WALLPAPER="/home/anton/dicuments/pictures/wall.jpg"
 
 if [[ ! -f "/tmp/monitor_mode.dat" ]]; then
