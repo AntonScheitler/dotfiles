@@ -24,3 +24,7 @@ vim.opt.updatetime = 50
 vim.g.mapleader = " "
 
 vim.opt.textwidth = 120
+
+vim.diagnostic.config({
+  virtual_text = true,
+})
