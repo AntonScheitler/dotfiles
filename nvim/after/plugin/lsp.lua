@@ -1,25 +1,36 @@
 local lsp_zero = require('lsp-zero')
 
-lsp_zero.extend_lspconfig()
+-- Use LspAttach autocommand for keymaps and formatting
+-- This is the recommended way in Neovim 0.11+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(event)
+    local id = vim.tbl_get(event, 'data', 'client_id')
+    local client = id and vim.lsp.get_client_by_id(id)
+    if not client then return end
 
--- lsp_attach is where you enable features that only work
--- if there is a language server active in the file
-lsp_zero.on_attach(function(client, bufnr)
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
-  lsp_zero.default_keymaps({buffer = bufnr})
+    local bufnr = event.buf
 
-  -- Enable formatting on attach for servers that support it
-  if client.server_capabilities.documentFormattingProvider then
-    require("lsp-format").on_attach(client, bufnr)
-  end
-end)
+    -- lsp-zero default keymaps
+    lsp_zero.default_keymaps({buffer = bufnr})
+
+    -- Enable formatting on attach for servers that support it
+    if client.server_capabilities.documentFormattingProvider then
+      require("lsp-format").on_attach(client, bufnr)
+    end
+  end,
+})
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {'lua_ls', 'eslint', 'clangd', 'pyright', 'rust_analyzer', 'texlab', 'gopls'},
   handlers = {
-    lsp_zero.default_setup,
+    -- The first entry (without a key) will be the default handler
+    -- and will be called for each installed server that doesn't have
+    -- a dedicated handler.
+    function(server_name)
+      vim.lsp.enable(server_name)
+    end,
+
     lua_ls = function()
       local lua_opts = lsp_zero.get_lua_opts({
         settings = {
@@ -30,21 +41,23 @@ require('mason-lspconfig').setup({
           }
         }
       })
-      require('lspconfig').lua_ls.setup(lua_opts)
+      vim.lsp.config('lua_ls', lua_opts)
+      vim.lsp.enable('lua_ls')
     end,
   }
 })
 
 -- Configure servers that are not managed by mason
-require('lspconfig').dartls.setup({})
+vim.lsp.enable('dartls')
 
-require('lspconfig').arduino_language_server.setup({
+vim.lsp.config('arduino_language_server', {
     cmd = {
         "arduino-language-server",
         "-cli-config", "/home/anton/.arduino15/arduino-cli.yaml",
         "-fqbn", "arduino:avr:uno"
     }
 })
+vim.lsp.enable('arduino_language_server')
 
 -- nvim-cmp setup
 lsp_zero.extend_cmp()
