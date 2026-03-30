@@ -51,3 +51,6 @@ vim.keymap.set("n", "<C-w>h", [[:vertical resize +5<Enter>]])
 vim.keymap.set("n", "<C-w>j", [[:resize +5<Enter>]])
 vim.keymap.set("n", "<C-w>k", [[:resize -5<Enter>]])
 vim.keymap.set("n", "<C-w>l", [[:vertical resize -5<Enter>]])
+
+-- find usages
+vim.keymap.set('n', '<leader>fu', ':lua require("telescope.builtin").lsp_references()<CR>', { noremap = true, silent = true })

@@ -12,10 +12,18 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   -- Replace the language servers listed here
   -- with the ones you want to install
-  ensure_installed = {'lua_ls', 'eslint', 'clangd', 'pyright', 'rust_analyzer', 'texlab'},
+  ensure_installed = {'lua_ls', 'eslint', 'clangd', 'pyright', 'rust_analyzer', 'texlab', 'gopls'},
   handlers = {
     lsp_zero.default_setup,
   }
+})
+
+lsp_zero.configure('arduino_language_server', {
+    cmd = {
+        "arduino-language-server",
+        "-cli-config", "/home/anton/.arduino15/arduino-cli.yaml",
+        "-fqbn", "arduino:avr:uno"
+    }
 })
 
 local cmp = require('cmp')
