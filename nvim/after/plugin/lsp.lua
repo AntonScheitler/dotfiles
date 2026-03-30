@@ -1,24 +1,44 @@
-lsp_zero = require('lsp-zero')
+local lsp_zero = require('lsp-zero')
 
+lsp_zero.extend_lspconfig()
+
+-- lsp_attach is where you enable features that only work
+-- if there is a language server active in the file
 lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
   lsp_zero.default_keymaps({buffer = bufnr})
-end)
 
-lsp_zero.setup_servers({'dartls', force = true})
+  -- Enable formatting on attach for servers that support it
+  if client.server_capabilities.documentFormattingProvider then
+    require("lsp-format").on_attach(client, bufnr)
+  end
+end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  -- Replace the language servers listed here
-  -- with the ones you want to install
   ensure_installed = {'lua_ls', 'eslint', 'clangd', 'pyright', 'rust_analyzer', 'texlab', 'gopls'},
   handlers = {
     lsp_zero.default_setup,
+    lua_ls = function()
+      local lua_opts = lsp_zero.get_lua_opts({
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { 'vim' }
+            }
+          }
+        }
+      })
+      require('lspconfig').lua_ls.setup(lua_opts)
+    end,
   }
 })
 
-lsp_zero.configure('arduino_language_server', {
+-- Configure servers that are not managed by mason
+require('lspconfig').dartls.setup({})
+
+require('lspconfig').arduino_language_server.setup({
     cmd = {
         "arduino-language-server",
         "-cli-config", "/home/anton/.arduino15/arduino-cli.yaml",
@@ -26,8 +46,11 @@ lsp_zero.configure('arduino_language_server', {
     }
 })
 
+-- nvim-cmp setup
+lsp_zero.extend_cmp()
+
 local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
+local cmp_action = lsp_zero.cmp_action()
 
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
@@ -47,14 +70,11 @@ cmp.setup({
     -- Scroll up and down in the completion documentation
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
-  })
+  }),
+  sources = {
+    {name = 'nvim_lsp'},
+    {name = 'luasnip'},
+  }
 })
 
 require("lsp-format").setup {}
-
-local on_attach = function(client, bufnr)
-    require("lsp-format").on_attach(client, bufnr)
-
-    -- ... custom code ...
-end
-require("lspconfig").gopls.setup { on_attach = on_attach }
