@@ -111,7 +111,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-eval $(keychain --eval --quiet github lrz)
+eval $(keychain --eval --quiet github lrz homeserver)
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$PATH:/home/anton/bin:/home/anton/.local/share/flutter/bin:/home/anton/.local/bin"
